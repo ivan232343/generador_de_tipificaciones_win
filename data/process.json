@@ -165,7 +165,7 @@
       ]
     },
     {
-      "nombre": "Flujo de intermitencia wifi",
+      "nombre": "Lentitud / ancho de banda",
       "code_name": "Intermittence_wifi",
       "listado": [
         { "id": "create_wan", "desc": "se crea nueva wan" },
