@@ -1,0 +1,30 @@
+/* MaterialDesignIcons.com */
+@font-face {
+    font-family: "Material Design Icons";
+    src: url("fonts/materialdesignicons-webfont.eot?v=6.5.95");
+    src: url("fonts/materialdesignicons-webfont.eot?#iefix&v=6.5.95") format("embedded-opentype"),
+        url("fonts/materialdesignicons-webfont.woff2?v=6.5.95") format("woff2"),
+        url("fonts/materialdesignicons-webfont.woff?v=6.5.95") format("woff"),
+        url("fonts/materialdesignicons-webfont.ttf?v=6.5.95") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.mdi:before,
+.mdi-set {
+    display: inline-block;
+    font: normal normal normal 24px/1 "Material Design Icons";
+    font-size: inherit;
+    text-rendering: auto;
+    line-height: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.mdi-checkbox-marked-circle-outline::before {
+    content: "\F0134"
+}
+
+.mdi-close-circle-outline::before {
+    content: "\F015A";
+}

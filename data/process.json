@@ -1,0 +1,197 @@
+{
+  "name": {
+    "long": "generador de tipificaciones para win",
+    "short": "gen tip x win",
+    "code": "tip_win"
+  },
+  "procesos": [
+    {
+      "nombre": "Flujo de Luces verdes (Sin internet)",
+      "code_name": "noNet_ponOK",
+      "listado": [
+        { "id": "ip_olt_nook", "desc": "Figura ip en smart OLT" },
+        { "id": "send_vas", "desc": "[NO] Solicitar el envio de VAS al ONT" },
+        {
+          "id": "conf_wan_manual",
+          "desc": "[NO] Se configura WAN con el cliente"
+        },
+        {
+          "id": "acces_iprouter_fail",
+          "desc": "[NO] Cliente no puede ingresar a la ip del router"
+        },
+        { "id": "reset_factory_ont", "desc": "[NO] Se reinicia de fabrica" },
+        {
+          "id": "config_manual",
+          "desc": "[NO] Se configura el router con el cliente"
+        },
+        {
+          "id": "configIP_manual",
+          "desc": "[SI] Se agrega al smart wifi manualmente"
+        },
+        { "id": "connectect_by", "desc": "Tiene problemas mediante->" },
+        {
+          "id": "cat_eth",
+          "desc": "[LAN] Se valida que el cable es de win o cat 5e +"
+        },
+        {
+          "id": "duplex_state",
+          "desc": "[LAN] Se valida estado del cable ethernet"
+        },
+        {
+          "id": "status_ports",
+          "desc": "[LAN] Se prueba en diferentes puertos de la ONT "
+        },
+        {
+          "id": "others_device_lan",
+          "desc": "[LAN] se prueba con otros dispositivos"
+        },
+        {
+          "id": "validate_conband",
+          "desc": "[WIFI] Se verifica la banda que esta conectada"
+        },
+        {
+          "id": "wlan_optimo",
+          "desc": "[WIFI] considerar alcances optimos<br>5Ghz -> 3m / 2.4Ghz -> 4m"
+        },
+        {
+          "id": "others_device_wifi",
+          "desc": "[WIFI] se prueba con otros dispositivos"
+        },
+        { "id": "create_wan", "desc": "se crea nueva wan" },
+        {
+          "id": "reboot_lan",
+          "desc": "[LAN] se desactiva y se vuelve a activar la conexion LAN"
+        },
+        {
+          "id": "validate_iprimary",
+          "desc": "[LAN] se valida ip primaria en ONT"
+        },
+        { "id": "dns_config", "desc": "[LAN] se configura dns en ONT" },
+        {
+          "id": "reboot_wlan",
+          "desc": "[WIFI] se desactiva y se vuelve a activar la conexion WLAN"
+        },
+        { "id": "zone_config", "desc": "[WIFI] se configura la zona horaria" },
+        {
+          "id": "advance_config_wifi",
+          "desc": "[WIFI] se configura las opciones avanzadas 2.4Ghz / 5Ghz"
+        },
+        {
+          "id": "chg_conf_wifi",
+          "desc": "[WIFI] se cambia la SSID y la contraseña de la red wifi"
+        },
+        {
+          "id": "validate_smrtwifi",
+          "desc": "se revisa la issue list y event list"
+        },
+        {
+          "id": "validate_smrtwifi2",
+          "desc": "se verifica que no estea en black list"
+        },
+        { "id": "validate_smrtwifi3", "desc": "se revisa las topologias" },
+        {
+          "id": "gen_tkt_",
+          "desc": "se hace la prueba de manera cableada por ultima vez / se envia vas a ONT y se configura la wan con el cliente"
+        },
+        { "id": "gen_tkt_no", "desc": "[SI] se valida servicio ok" },
+        { "id": "gen_tkt_si", "desc": "[NO] se agenda VT interno" },
+        {
+          "id": "end_call",
+          "desc": "Se hace pregunta de aseguramiento / se envia a encuesta / fin llamada"
+        }
+      ]
+    },
+    {
+      "nombre": "Flujo de Ancho de banda y lentitud",
+      "code_name": "band_slow",
+      "listado": [
+        { "id": "create_wan", "desc": "se crea nueva wan" },
+        { "id": "http_on", "desc": "se habilita el HTTP" },
+        {
+          "id": "plan_assigned",
+          "desc": "ver plan asignado"
+        },
+        {
+          "id": "cat_eth",
+          "desc": "categoria del cable ethernet"
+        },
+        {
+          "id": "state_connect_interno",
+          "desc": "estado del camble jumper y cable eth"
+        },
+        {
+          "id": "conect_direct_ont",
+          "desc": "conexion directa a la ont"
+        },
+        {
+          "id": "conect_vpn",
+          "desc": "no esta conectado a la vpn"
+        },
+        {
+          "id": "duplex_state",
+          "desc": "Eth Port  en ONT"
+        },
+        {
+          "id": "red_card",
+          "desc": "se verifica la tarjeta de red"
+        },
+        { "id": "cone_nat", "desc": "full cone nat ok" },
+        {
+          "id": "dns_config",
+          "desc": "se configura DNS"
+        },
+        {
+          "id": "opt_wlan",
+          "desc": "habilitación y des habilitación de las opciones wlan"
+        }
+      ]
+    },
+    {
+      "nombre": "Flujo de intermitencia wifi",
+      "code_name": "Intermittence_wifi",
+      "listado": [
+        { "id": "create_wan", "desc": "se crea nueva wan" },
+        { "id": "http_on", "desc": "se habilita el HTTP" },
+        {
+          "id": "plan_assigned",
+          "desc": "ver plan asignado"
+        },
+        {
+          "id": "wlan_optimo",
+          "desc": "se realiza pruebas dentroi del alcance optimo de las redes de wiffi"
+        },
+        {
+          "id": "conect_direct_ont",
+          "desc": "conexion directa a la ont"
+        },
+        {
+          "id": "wlan_connect_5ghz",
+          "desc": "se verifica la banda a la que esta conectado el cliente"
+        },
+        {
+          "id": "conect_vpn",
+          "desc": "no esta conectado a la vpn"
+        },
+        {
+          "id": "chg_domchper",
+          "desc": "Cambio de Dominio Regulatorio, Canales y Periodo"
+        },
+        {
+          "id": "chg_conf_wifi",
+          "desc": "cambio de ssid y contraseña"
+        },
+        {
+          "id": "reboot_wlan",
+          "desc": "reinicio del wlan"
+        },
+        {
+          "id": "ont_desenergy",
+          "desc": "wlan/desenergización de la ont"
+        }
+      ]
+    },
+    {
+      "nombre": "Flujo de intermitencia cableado"
+    }
+  ]
+}
