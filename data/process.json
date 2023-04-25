@@ -86,7 +86,7 @@
         },
         {
           "id": "validate_smrtwifi2",
-          "desc": "se verifica que no estea en black list"
+          "desc": "se verifica que no este en black list"
         },
         { "id": "validate_smrtwifi3", "desc": "se revisa las topologias" },
         {
@@ -102,47 +102,65 @@
       ]
     },
     {
-      "nombre": "Flujo de Ancho de banda y lentitud",
-      "code_name": "band_slow",
+      "nombre": "Servicios especiales",
+      "code_name": "serv_esp",
       "listado": [
-        { "id": "create_wan", "desc": "se crea nueva wan" },
-        { "id": "http_on", "desc": "se habilita el HTTP" },
+        { "id": "problem_type", "desc": "El problema se presenta en -> _____" },
         {
-          "id": "plan_assigned",
-          "desc": "ver plan asignado"
+          "id": "web_app_p1",
+          "desc": "[WEB/APP] Se valida que si puede ingresar con otros dispositivos conectados a la red de win"
         },
         {
-          "id": "cat_eth",
-          "desc": "categoria del cable ethernet"
+          "id": "web_app_p2",
+          "desc": "[WEB/APP] Se valida que si puede ingresar con otro operador"
         },
         {
-          "id": "state_connect_interno",
-          "desc": "estado del camble jumper y cable eth"
+          "id": "vpn_p1",
+          "desc": "[VPN] Se valida que si puede ingresar con otros dispositivos conectados a la red de win"
         },
         {
-          "id": "conect_direct_ont",
-          "desc": "conexion directa a la ont"
+          "id": "vpn_p2",
+          "desc": "[VPN] Se valida que si puede ingresar con otro operador"
         },
         {
-          "id": "conect_vpn",
-          "desc": "no esta conectado a la vpn"
+          "id": "vpn_p3",
+          "desc": "[VPN] Se valida que las credenciales estan vigentes"
         },
         {
-          "id": "duplex_state",
-          "desc": "Eth Port  en ONT"
+          "id": "create_wan",
+          "desc": "se genera nuevas wan (max __)[NO TE OLVIDES DE ELIMINARLOS AL TERMINAR LA LLAMADA]"
+        },
+        { "id": "validate_chgip", "desc": "se verifica que se cambio la ip" },
+        { "id": "dns_config_ont", "desc": "Se cambia DNS en ONT" },
+        {
+          "id": "dns_config_dvc_p1",
+          "desc": "[WEB/APP] Se cambia DNS en dispositivo"
         },
         {
-          "id": "red_card",
-          "desc": "se verifica la tarjeta de red"
-        },
-        { "id": "cone_nat", "desc": "full cone nat ok" },
-        {
-          "id": "dns_config",
-          "desc": "se configura DNS"
+          "id": "dns_config_dvc_p2",
+          "desc": "[WEB/APP] Limpiar cache de DNS del dispositivo"
         },
         {
-          "id": "opt_wlan",
-          "desc": "habilitación y des habilitación de las opciones wlan"
+          "id": "dns_config_dvc_p3",
+          "desc": "[WEB/APP] Limpiar cache de DNS del navegador"
+        },
+        {
+          "id": "reinstall_app",
+          "desc": "[APP] Desistalar y volver a instalar"
+        },
+        {
+          "id": "validate_smrtwifi2",
+          "desc": "se verifica que no este en black list [EVIDENCIA]"
+        },
+        {
+          "id": "print_error",
+          "desc": "[VPN] Realizar tracert en cmd [EVIDENCIA]"
+        },
+        { "id": "gen_tkt_si", "desc": "[NO] se agenda NOC para tratamiento" },
+        { "id": "gen_tkt_no", "desc": "[SI] se valida servicio ok" },
+        {
+          "id": "end_call",
+          "desc": "Se hace pregunta de aseguramiento / se envia a encuesta / fin llamada"
         }
       ]
     },

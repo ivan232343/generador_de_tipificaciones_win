@@ -63,3 +63,13 @@ ctrl_proccess.addEventListener("change", function (ele) {
   request.send(); // console.log("change", ele.target.value)
 });
 console.log(formGetTipi.childNodes);
+document.querySelector("button[type=menu]").addEventListener("click", function () {
+  document.querySelectorAll("input[type=text],textarea").forEach(function (e) {
+    console.log(e.value);
+  });
+  document.querySelectorAll("input[type=checkbox]").forEach(function (e) {
+    if (e.checked == true) {
+      console.log(e.parentNode.innerText.replace(/\[.+?]/g, ""));
+    }
+  });
+});
