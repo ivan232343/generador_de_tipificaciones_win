@@ -67,10 +67,20 @@ ctrl_proccess.addEventListener("change", (ele) => {
 console.log(formGetTipi.childNodes)
 document.querySelector("button[type=menu]").addEventListener("click", (e) => {
     e.preventDefault();
-    document.querySelectorAll("input[type=text],textarea").forEach(e => { console.log(e.value) })
+    let tipi_generada = "";
+    document.querySelectorAll("input[type=text],#obs_cl").forEach(e => {
+        // console.log(e.parentNode)
+        tipi_generada += `${e.parentNode.innerText}: ${e.value}/ `
+    })
     document.querySelectorAll("input[type=checkbox]").forEach(e => {
         if (e.checked == true) {
-            console.log(e.parentNode.innerText.replace(/\[.+?]/g, ""))
+            tipi_generada += e.parentNode.innerText.replace(/\[.+?]/g, "") + " /"
         }
     })
+    var content = document.getElementById('copy_gen');
+    content.innerHTML = tipi_generada;
+    content.style.display = "block";
+    content.focus(); content.select(); document.execCommand('copy')
+    content.style.display = "none";
+    // navigator.clipboard.writeText(tipi_generada);
 })

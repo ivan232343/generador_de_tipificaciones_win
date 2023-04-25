@@ -65,12 +65,21 @@ ctrl_proccess.addEventListener("change", function (ele) {
 console.log(formGetTipi.childNodes);
 document.querySelector("button[type=menu]").addEventListener("click", function (e) {
   e.preventDefault();
-  document.querySelectorAll("input[type=text],textarea").forEach(function (e) {
-    console.log(e.value);
+  var tipi_generada = "";
+  document.querySelectorAll("input[type=text],#obs_cl").forEach(function (e) {
+    // console.log(e.parentNode)
+    tipi_generada += "".concat(e.parentNode.innerText, ": ").concat(e.value, "/ ");
   });
   document.querySelectorAll("input[type=checkbox]").forEach(function (e) {
     if (e.checked == true) {
-      console.log(e.parentNode.innerText.replace(/\[.+?]/g, ""));
+      tipi_generada += e.parentNode.innerText.replace(/\[.+?]/g, "") + " /";
     }
   });
+  var content = document.getElementById('copy_gen');
+  content.innerHTML = tipi_generada;
+  content.style.display = "block";
+  content.focus();
+  content.select();
+  document.execCommand('copy');
+  content.style.display = "none"; // navigator.clipboard.writeText(tipi_generada);
 });
