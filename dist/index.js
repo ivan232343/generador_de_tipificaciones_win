@@ -65,7 +65,8 @@ ctrl_proccess.addEventListener("change", (ele) => {
 })
 
 console.log(formGetTipi.childNodes)
-document.querySelector("button[type=menu]").addEventListener("click", () => {
+document.querySelector("button[type=menu]").addEventListener("click", (e) => {
+    e.preventDefault();
     document.querySelectorAll("input[type=text],textarea").forEach(e => { console.log(e.value) })
     document.querySelectorAll("input[type=checkbox]").forEach(e => {
         if (e.checked == true) {

@@ -63,7 +63,8 @@ ctrl_proccess.addEventListener("change", function (ele) {
   request.send(); // console.log("change", ele.target.value)
 });
 console.log(formGetTipi.childNodes);
-document.querySelector("button[type=menu]").addEventListener("click", function () {
+document.querySelector("button[type=menu]").addEventListener("click", function (e) {
+  e.preventDefault();
   document.querySelectorAll("input[type=text],textarea").forEach(function (e) {
     console.log(e.value);
   });
