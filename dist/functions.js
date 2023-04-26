@@ -12,3 +12,35 @@ function get_process() {
     }
     request.send()
 }
+
+let validate_potencia = document.querySelector("#potencia_olt")
+chng_icons = document.querySelector(".mdi_chng")
+validate_potencia.addEventListener("input", (i) => {
+    let nums = i.target.value.split("/");
+    nums.onu = parseFloat(nums[0])
+    nums.olt = parseFloat(nums[1])
+    if (nums.onu >= -25.5 && nums.olt >= -30.0) {
+        if (nums.onu > nums.olt) {
+            diff = nums.onu - nums.olt
+        } else if (nums.onu < nums.olt) {
+            diff = nums.olt - nums.onu
+        }
+        console.log(diff)
+        if (diff <= 5.5) {
+            // if (chng_icons.classList.contains("mdi-close-circle-outline")) {
+            chng_icons.classList.remove("mdi-close-circle-outline")
+            chng_icons.classList.add("mdi-checkbox-marked-circle-outline")
+            // }
+            console.log(" no requiere visita")
+        } else {
+            chng_icons.classList.add("mdi-close-circle-outline")
+            chng_icons.classList.remove("mdi-checkbox-marked-circle-outline")
+            console.log(" require visita ")
+        }
+    }
+    else {
+        chng_icons.classList.add("mdi-close-circle-outline")
+        chng_icons.classList.remove("mdi-checkbox-marked-circle-outline")
+        console.log(" require visita ")
+    }
+})
