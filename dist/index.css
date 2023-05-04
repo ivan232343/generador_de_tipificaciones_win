@@ -26,7 +26,7 @@ textarea {
 
 .container__box-secundary {
   overflow: hidden auto;
-  height: 40vh;
+  height: 25vh;
 }
 .container__box-secundary .container__box-item label {
   width: 93%;
