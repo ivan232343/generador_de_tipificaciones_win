@@ -3,7 +3,7 @@ let ctrl_proccess = document.querySelector("#ctrl_proccess"), retornar;
 let ctrlBoxSecondary = document.querySelector(".container__box-secundary")
 let formGetTipi = document.querySelector("#gen_tipi");
 let global_params;
-let toLocalStorage = "";
+var toLocalStorage = "";
 get_process()
 ctrl_proccess.addEventListener("change", (ele) => {
     let elementoARellenar = "";
@@ -31,19 +31,10 @@ ctrl_proccess.addEventListener("change", (ele) => {
     request.send()
     // console.log("change", ele.target.value)
 })
-
-console.log(formGetTipi.childNodes)
 document.querySelector("a[type=menu]").addEventListener("click", (e) => {
     // e.preventDefault();
-    let tipi_generada = "";
-    document.querySelectorAll("input[type=text],#obs_cl").forEach(e => {
-        // console.log(e.parentNode)
-        tipi_generada += `${e.parentNode.innerText}: ${e.value}/ `
-        // console.log(e.name)
-        toLocalStorage += `{"${e.name}":"${e.value}"}`
-    })
-    toLocalStorage = toLocalStorage.replaceAll("}{", ",")
-    console.log(toLocalStorage);
+    tipi_generada = "";
+    tipi_generada += get_campos("nojson")
     document.querySelectorAll("input[type=checkbox]").forEach(e => {
         if (e.checked == true) {
             tipi_generada += e.parentNode.innerText.replace(/\[.+?]/g, "") + " /"
@@ -57,7 +48,10 @@ document.querySelector("a[type=menu]").addEventListener("click", (e) => {
     content.style.display = "none";
     // navigator.clipboard.writeText(tipi_generada);
 })
-document.querySelector("button[type=reset]").addEventListener("click", (e) => {
-    e.preventDefault()
-    console.log(e);
+formGetTipi.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log(JSON.parse(`${get_campos()}`));
+    toLocal = JSON.parse(`${get_campos()}`)
+    localStorage.setItem(toLocal.nombre_cl, get_campos())
+    formGetTipi.reset();
 })

@@ -44,3 +44,15 @@ validate_potencia.addEventListener("input", (i) => {
         console.log(" require visita ")
     }
 })
+function get_campos(format = "json") {
+    toLocalStorage = "";
+    document.querySelectorAll("input[type=text],#obs_cl").forEach(e => {
+        if (format == "json") {
+            toLocalStorage += `{"${e.name}":"${e.value}"}`
+            toLocalStorage = toLocalStorage.replace("}{", ",")
+        } else {
+            toLocalStorage += `${e.parentNode.innerText}: ${e.value}/ `
+        }
+    })
+    return toLocalStorage;
+}
