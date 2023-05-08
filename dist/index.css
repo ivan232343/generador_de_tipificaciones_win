@@ -10,23 +10,31 @@ main {
 
 textarea {
   resize: none;
-  width: 12rem;
-  height: 5rem;
+  height: 4rem;
 }
 
 .__flex .container__box-item {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   padding: 0.2rem;
   width: 100%;
 }
 
+.container__box-primary input,
+.container__box-primary textarea,
+.container__box-primary select {
+  width: 90%;
+}
+
 .container__box-secundary {
   overflow: hidden auto;
-  height: 25vh;
+  height: 20vh;
+}
+.container__box-secundary .container__box-item {
+  display: flex;
+  padding: 0.2rem;
+  width: 100%;
+  flex-direction: column;
 }
 .container__box-secundary .container__box-item label {
   width: 93%;

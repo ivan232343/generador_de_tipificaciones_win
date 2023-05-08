@@ -50,8 +50,8 @@ document.querySelector("a[type=menu]").addEventListener("click", (e) => {
 })
 formGetTipi.addEventListener("submit", (e) => {
     e.preventDefault();
-    console.log(JSON.parse(`${get_campos()}`));
-    toLocal = JSON.parse(`${get_campos()}`)
-    localStorage.setItem(toLocal.nombre_cl, get_campos())
+    toLocal = JSON.parse(`${get_campos()}`);
+    localStorage.setItem(toLocal.dni_cl, get_campos());
+    ctrlBoxSecondary.innerHTML = "";
     formGetTipi.reset();
 })

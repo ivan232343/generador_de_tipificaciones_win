@@ -54,5 +54,9 @@ function get_campos(format = "json") {
             toLocalStorage += `${e.parentNode.innerText}: ${e.value}/ `
         }
     })
+    let hora = new Date();
+    toLocalStorage += `{"createOn":"${hora.getDate()}/${hora.getMonth() + 1}/${hora.getFullYear()}T${hora.getHours()}:${hora.getMinutes()}"}`
+    toLocalStorage = toLocalStorage.replaceAll("}{", ",")
+    // toLocalStorage += `{"hora":"${hora.getDay()}-${hora.getMonth() + 1}-${hora.getFullYear()}"}`.replaceAll("}{", ",")
     return toLocalStorage;
 }
