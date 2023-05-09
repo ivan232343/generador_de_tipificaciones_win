@@ -4,10 +4,12 @@
     "short": "gen tip x win",
     "code": "tip_win"
   },
-  "procesos": [{
+  "procesos": [
+    {
       "nombre": "Flujo de Luces verdes (Sin internet)",
       "code_name": "noNet_ponOK",
-      "listado": [{
+      "listado": [
+        {
           "id": "ip_olt_nook",
           "desc": "Figura ip en smart OLT"
         },
@@ -132,7 +134,8 @@
     {
       "nombre": "Servicios especiales",
       "code_name": "serv_esp",
-      "listado": [{
+      "listado": [
+        {
           "id": "problem_type",
           "desc": "El problema se presenta en -> _____"
         },
@@ -209,7 +212,8 @@
     {
       "nombre": "Lentitud / ancho de banda",
       "code_name": "slowed_net",
-      "listado": [{
+      "listado": [
+        {
           "id": "validate_plan_plus",
           "desc": "se verifica el plan asignado en smart OLT"
         },
@@ -233,7 +237,6 @@
           "id": "no_vpn",
           "desc": "[LAN] Se valida sin conexion a VPN [SOLICITA LA IP PUBLICA PARA DESCARTAR]"
         },
-
         {
           "id": "validate_eth_port",
           "desc": "[LAN] Se valida el valor de la EthPort"
@@ -349,7 +352,8 @@
         {
           "id": "ignore_this",
           "desc": "[HACER ESTO CON CADA DISPONIBLE PARA DESCARTAR LADO CLIENTE / SI NINGUNO LOGRA LA VELOCIDAD SOLICITAR MODELO Y MARCA PARA DESCARTAR DESFASADO]algun dispositivo paso el test?"
-        }, {
+        },
+        {
           "id": "se_logro_no",
           "desc": "[SI][NO/TODOS SON DESFASADOS] se educa al cliente y se cierra el ticket"
         },
@@ -366,7 +370,8 @@
     {
       "nombre": "Flujo de intermitencia",
       "code_name": "intermitencia",
-      "listado": [{
+      "listado": [
+        {
           "id": "validate_plan_plus",
           "desc": "se verifica el plan asignado en smart OLT"
         },
@@ -522,8 +527,7 @@
           "id": "gen_tkt_si",
           "desc": "[WIFI-ALL] se agenda VT externo"
         }
-
       ]
     }
   ]
-} 
+}

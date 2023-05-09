@@ -38,4 +38,5 @@ textarea {
 }
 .container__box-secundary .container__box-item label {
   width: 93%;
+  user-select: none;
 }

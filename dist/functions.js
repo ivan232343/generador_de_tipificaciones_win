@@ -1,22 +1,20 @@
-// const request = new XMLHttpRequest();
-function get_process() {
-    request.open("GET", "data/process.json", true);
-    request.onload = (e) => {
-        retornar = JSON.parse(e.target.response);
-        retornar.procesos.forEach(u => {
-            option = document.createElement("option");
-            option.value = u.code_name
-            option.text = u.nombre
-            ctrl_proccess.appendChild(option);
-        });
-    }
-    request.send()
+import { procesos } from '../dist/data/procesos.js';
+let ctrl_proccess = document.querySelector("#ctrl_proccess");
+let ctrlBoxSecondary = document.querySelector(".container__box-secundary");
+console.log(procesos);
+export function get_process() {
+    let rellenar = "";
+    procesos.forEach(e => {
+        rellenar += `<option value="${e.code_name}">${e.nombre}</option>`;
+    })
+    ctrl_proccess.innerHTML += rellenar;
 }
 
 let validate_potencia = document.querySelector("#potencia_olt")
-chng_icons = document.querySelector(".mdi_chng")
+let chng_icons = document.querySelector(".mdi_chng")
 validate_potencia.addEventListener("input", (i) => {
     let nums = i.target.value.split("/");
+    let diff = 0;
     nums.onu = parseFloat(nums[0])
     nums.olt = parseFloat(nums[1])
     if (nums.onu >= -25.5 && nums.olt >= -30.0) {
@@ -44,8 +42,8 @@ validate_potencia.addEventListener("input", (i) => {
         console.log(" require visita ")
     }
 })
-function get_campos(format = "json") {
-    toLocalStorage = "";
+export function get_campos(format = "json") {
+    let toLocalStorage = "";
     document.querySelectorAll("input[type=text],#obs_cl").forEach(e => {
         if (format == "json") {
             toLocalStorage += `{"${e.name}":"${e.value}"}`
@@ -60,3 +58,24 @@ function get_campos(format = "json") {
     // toLocalStorage += `{"hora":"${hora.getDay()}-${hora.getMonth() + 1}-${hora.getFullYear()}"}`.replaceAll("}{", ",")
     return toLocalStorage;
 }
+ctrl_proccess.addEventListener("change", (ele) => {
+    let elementoARellenar = "";
+
+    procesos.forEach(u => {
+        // console.log(u)
+        if (u.code_name === ele.target.value) {
+            u.listado.forEach(i => {
+                // console.log();
+                elementoARellenar += `
+                    <div class="container__box-item">
+                        <label for="${i.id}">
+                            <input type="checkbox" name="${i.id}" id="${i.id}"> ${i.desc}
+                        </label>
+                    </div> 
+                `
+            })
+            // console.log(elementoARellenar);
+            ctrlBoxSecondary.innerHTML = elementoARellenar
+        }
+    })
+})
