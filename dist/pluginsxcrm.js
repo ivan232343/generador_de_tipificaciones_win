@@ -1,0 +1,1 @@
+manageCategoriesTable.column(12).cache("search").each((v, id) => { return v === 'LOS ROJO' ? manageCategoriesTable.row(id).remove().draw() : console.log(false) })

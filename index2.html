@@ -10,34 +10,43 @@
 </head>
 
 <body>
+    <header>
+        <!-- inicio e historial -->
+    </header>
+    <header>
+        <div class="cabecera __flex">
+            <div class="item">Formulario</div>
+            <div class="item">Historial</div>
+        </div>
+    </header>
     <main class="box-general">
-        <div class="container">
+        <div class="container form_tipi ">
             <form action="#" method="post" id="gen_tipi">
                 <div class="container__box">
-                    <div class="container__box-primary __flex">
+                    <div class="container__box-primary __flex -column">
                         <div class="container__box-item">
                             <label for="nombre_cl">Nombre del cliente
-                                <input type="text" name="nombre_cl" id="nombre_cl">
+                                <input type="text" name="nombre_cl" id="nombre_cl" required>
                             </label>
                         </div>
                         <div class="container__box-item">
                             <label for="tkt_cl">ticket
-                                <input type="text" name="tkt_cl" id="tkt_cl">
+                                <input type="text" name="tkt_cl" id="tkt_cl" required>
                             </label>
                         </div>
                         <div class="container__box-item">
                             <label for="dni_cl">Dni
-                                <input type="text" name="dni_cl" id="dni_cl">
+                                <input type="text" name="dni_cl" id="dni_cl" required>
                             </label>
                         </div>
                         <div class="container__box-item">
                             <label for="nodo_serv">Nodo
-                                <input type="text" name="nodo_serv" id="nodo_serv">
+                                <input type="text" name="nodo_serv" id="nodo_serv" required>
                             </label>
                         </div>
                         <div class="container__box-item">
                             <label for="mac_serv">MAC
-                                <input type="text" name="mac_serv" id="mac_serv">
+                                <input type="text" name="mac_serv" id="mac_serv" required>
                             </label>
                         </div>
                         <div class="container__box-item">
@@ -61,7 +70,7 @@
                         </div>
 
                     </div>
-                    <div class="container__box-secundary __flex">
+                    <div class="container__box-secundary __flex -column">
                         <!-- Aqui se generaran los checkbox del itinerario del proceso -->
                     </div>
                     <div class="container__box-btnfooter __flex">
@@ -71,6 +80,11 @@
                     </div>
                 </div>
             </form>
+        </div>
+        <div class="container today _hidden">
+            <div class="card box">
+                <!-- aqui se iran generando las tarjetas -->
+            </div>
         </div>
     </main>
     <textarea name="copy_gen" id="copy_gen" style="display:none;" placeholder="no se deberia de ver"></textarea>
