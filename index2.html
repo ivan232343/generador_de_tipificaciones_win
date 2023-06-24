@@ -11,16 +11,13 @@
 
 <body>
     <header>
-        <!-- inicio e historial -->
-    </header>
-    <header>
         <div class="cabecera __flex">
-            <div class="item">Formulario</div>
-            <div class="item">Historial</div>
+            <div class="item" data-topen="form_tipi">Formulario</div>
+            <div class="item" data-topen="hist_today">Historial</div>
         </div>
     </header>
     <main class="box-general">
-        <div class="container form_tipi ">
+        <div id="form_tipi" class="container ">
             <form action="#" method="post" id="gen_tipi">
                 <div class="container__box">
                     <div class="container__box-primary __flex -column">
@@ -51,8 +48,15 @@
                         </div>
                         <div class="container__box-item">
                             <label for="potencia_olt">Potencia
-                                <input type="text" name="potencia_olt" id="potencia_olt">
-                                <span class=" mdi mdi-close-circle-outline mdi_chng"></span>
+                                <div class="box -potencias __flex">
+                                    <input type="text" name="potencia_onu" id="potencia_onu" class="potencia"
+                                        placeholder="ONU">
+                                    <input type="text" name="potencia_olt" id="potencia_olt" class="potencia"
+                                        placeholder="OLT">
+                                    <input type="text" name="potencia_status" id="potencia_status" class="potencia"
+                                        placeholder="waiting">
+                                    <span class=" mdi mdi-close-circle-outline mdi_chng"></span>
+                                </div>
                             </label>
                         </div>
                         <div class="container__box-item">
@@ -81,7 +85,7 @@
                 </div>
             </form>
         </div>
-        <div class="container today _hidden">
+        <div id="hist_today" class="container _hidden">
             <div class="card box">
                 <!-- aqui se iran generando las tarjetas -->
             </div>
