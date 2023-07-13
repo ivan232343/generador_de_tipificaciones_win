@@ -1,14 +1,13 @@
 const request = new XMLHttpRequest();
 
-import { get_process, get_campos, buildCards } from './functions.js'
-
+import { get_status, get_campos, buildCards } from './functions.js'
 let ctrlBoxSecondary = document.querySelector(".container__box-secundary");
 
 let formGetTipi = document.querySelector("#gen_tipi");
 
 let hora = new Date();
 
-get_process()
+get_status()
 
 document.querySelector("a[type=menu]").addEventListener("click", (e) => {
     // e.preventDefault();

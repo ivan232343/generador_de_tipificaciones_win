@@ -1,17 +1,24 @@
 import { procesos } from '../dist/data/procesos.js';
-
+import { status_tickets } from './data/base.js';
 let ctrl_proccess = document.querySelector("#ctrl_proccess");
 let hora = new Date();
 let ctrlBoxSecondary = document.querySelector(".container__box-secundary");
 const PotenciaBox = document.querySelector(".-potencias")
 
-export function get_process() {
+export function get_status() {
     let rellenar = "";
-    procesos.forEach(e => {
-        rellenar += `<option value="${e.code_name}">${e.nombre}</option>`;
+    status_tickets.forEach(e => {
+        rellenar += `<option value="${e.name.replace(" ", "_")}">${e.name}</option>`;
     })
     ctrl_proccess.innerHTML += rellenar;
 }
+// export function get_process() {
+//     let rellenar = "";
+//     procesos.forEach(e => {
+//         rellenar += `<option value="${e.code_name}">${e.nombre}</option>`;
+//     })
+//     ctrl_proccess.innerHTML += rellenar;
+// }
 
 let validate_potencia = document.querySelector("#potencia_olt")
 let chng_icons = document.querySelector(".mdi_chng")
@@ -83,7 +90,8 @@ ctrl_proccess.addEventListener("change", (ele) => {
 export const buildCards = (dni_cl, tkt_cl, nodo_serv, mac_serv, potencia_olt, potencia_onu, potencia_status, obs_cl, nombre_cl) => {
     let cardBox = document.querySelector(".card.box");
     const initCard = document.createElement("div");
-    const get_potencia = (potencia_olt != "" || potencia_onu != "") ? `${potencia_olt}dBm / ${potencia_onu}dBm` : `Sin datos`
+    const get_potencia = (potencia_olt != "" || potencia_onu != "") ? `${potencia_olt}dBm / ${potencia_onu}dBm` : `Sin datos`;
+    const isDegradado = (potencia_onu >= -25.5 && potencia_olt >= -30.0) ? (potencia_onu - potencia_olt) >= -5.5 ? 'no' : 'si ' : 'si';
     cardBox.appendChild(initCard);
     initCard.classList.add("card", "content");
     initCard.innerHTML += `
@@ -100,13 +108,11 @@ export const buildCards = (dni_cl, tkt_cl, nodo_serv, mac_serv, potencia_olt, po
         <div class="item">nodo: ${nodo_serv}</div>
         <div class="item">mac: ${mac_serv}</div>
     <div class="item">potencia:${get_potencia}</div>
-        <div class="item">degradado: Si | No -${potencia_status}dBm</div>
+        <div class="item">degradado: ${isDegradado} /  -${potencia_status}dBm</div>
         <div class="item">Observaciones: ${obs_cl}</div>
     </div>
     <div class="card footer __flex">
-        <div class="item">boton 1</div>
-        <div class="item">boton 2</div>
-        <div class="item">boton 3</div>
+        <div class="item">editar</div>
     </div>
      `
 }
