@@ -49,7 +49,6 @@ const getToday = () => {
     let today_regex = `${hora.getDate()}\/${hora.getMonth() + 1}\/${hora.getFullYear()}T[0-9]+:[0-9]+`
     for (let i = 0; i < localStorage.length; i++) {
         let prueba = JSON.parse(localStorage.getItem(localStorage.key(i)))
-        console.log(prueba.potencia_status)
         if (prueba.createOn.search(today_regex) === 0) {
             buildCards(
                 prueba.dni_cl,
@@ -66,10 +65,10 @@ const getToday = () => {
     }
 }
 getToday()
-document.querySelectorAll(".item").forEach((e) => {
+document.querySelectorAll(".cabecera .item").forEach((e) => {
     e.addEventListener("click", (l) => {
-        document.querySelectorAll("container").forEach((e) => { return e.classList.add("_hidden") })
-        let content = document.getElementById(l.target.dataset.topen)
-        console.log(content)
+        document.querySelectorAll("main div.container").forEach(e => e.classList.add("_hidden"))
+        document.querySelector(`#${l.target.dataset.topen}`).classList.remove("_hidden")
+        console.log(l.target.dataset.topen)
     })
 })
