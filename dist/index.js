@@ -71,3 +71,5 @@ document.querySelectorAll(".cabecera .item").forEach((e) => {
         console.log(l.target.dataset.topen)
     })
 })
+
+const reload = () => document.getElementById("hist_today").innerHTML = ""; getToday()
