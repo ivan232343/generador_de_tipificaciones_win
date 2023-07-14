@@ -27,7 +27,7 @@ function calc_potencia(onu, olt) {
     var diff, vt
     console.log(onu, olt)
     if (onu >= -25.5 && olt >= -30.0) {
-        diff = onu > olt ? onu - olt : olt - onu
+        diff = onu < olt ? onu - olt : olt - onu
         vt = diff <= 5.5 ? false : true
     } else {
         diff = -30.0
@@ -53,7 +53,7 @@ PotenciaBox.querySelector("#potencia_olt").addEventListener("input", (lis) => {
 
 export function get_campos(format = "json") {
     let toLocalStorage = "";
-    document.querySelectorAll("input[type=text],#obs_cl").forEach(e => {
+    document.querySelectorAll("input[type=text],#obs_cl,select").forEach(e => {
         if (format == "json") {
             toLocalStorage += `{"${e.name}":"${e.value}"}`
             toLocalStorage = toLocalStorage.replace("}{", ",")
@@ -116,3 +116,4 @@ export const buildCards = (dni_cl, tkt_cl, nodo_serv, mac_serv, potencia_olt, po
     </div>
      `
 }
+expor
