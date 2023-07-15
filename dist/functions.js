@@ -116,4 +116,3 @@ export const buildCards = (dni_cl, tkt_cl, nodo_serv, mac_serv, potencia_olt, po
     </div>
      `
 }
-expor
