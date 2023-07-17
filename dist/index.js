@@ -6,9 +6,10 @@ let ctrlBoxSecondary = document.querySelector(".container__box-secundary");
 let formGetTipi = document.querySelector("#gen_tipi");
 
 let hora = new Date();
-
-get_status()
-
+window.onload = () => {
+    get_status()
+    getToday()
+}
 document.querySelector("a[type=menu]").addEventListener("click", (e) => {
     // e.preventDefault();
     let tipi_generada = "";
@@ -38,7 +39,8 @@ formGetTipi.addEventListener("submit", (e) => {
         toLocal.potencia_onu,
         toLocal.potencia_status,
         toLocal.obs_cl,
-        toLocal.nombre_cl
+        toLocal.nombre_cl,
+        toLocal.ctrl_proccess
     )
     ctrlBoxSecondary.innerHTML = "";
     formGetTipi.reset();
@@ -58,12 +60,12 @@ const getToday = () => {
                 prueba.potencia_onu,
                 prueba.potencia_status,
                 prueba.obs_cl,
-                prueba.nombre_cl
+                prueba.nombre_cl,
+                prueba.ctrl_proccess
             )
         }
     }
 }
-getToday()
 document.querySelectorAll(".cabecera .item").forEach((e) => {
     e.addEventListener("click", (l) => {
         document.querySelectorAll("main div.container").forEach(e => e.classList.add("_hidden"))
@@ -72,4 +74,4 @@ document.querySelectorAll(".cabecera .item").forEach((e) => {
     })
 })
 
-const reload = () => document.getElementById("hist_today").innerHTML = ""; getToday()
+// const reload = () => document.getElementById("hist_today").innerHTML = "" && getToday()

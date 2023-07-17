@@ -28,7 +28,7 @@ function calc_potencia(onu, olt) {
     console.log(onu, olt)
     if (onu >= -25.5 && olt >= -30.0) {
         diff = onu < olt ? onu - olt : olt - onu
-        vt = diff <= 5.5 ? false : true
+        vt = diff <= -5.5 ? true : false
     } else {
         diff = -30.0
         vt = true
@@ -87,7 +87,7 @@ ctrl_proccess.addEventListener("change", (ele) => {
     })
 })
 
-export const buildCards = (dni_cl, tkt_cl, nodo_serv, mac_serv, potencia_olt, potencia_onu, potencia_status, obs_cl, nombre_cl) => {
+export const buildCards = (dni_cl, tkt_cl, nodo_serv, mac_serv, potencia_olt, potencia_onu, potencia_status, obs_cl, nombre_cl, ctrl_proccess) => {
     let cardBox = document.querySelector(".card.box");
     const initCard = document.createElement("div");
     const get_potencia = (potencia_olt != "" || potencia_onu != "") ? `${potencia_olt}dBm / ${potencia_onu}dBm` : `Sin datos`;
@@ -100,7 +100,7 @@ export const buildCards = (dni_cl, tkt_cl, nodo_serv, mac_serv, potencia_olt, po
             <h4>${nombre_cl}</h4>
         </div>
         <div class="subname_cliente __flex">
-            <div class="item">${dni_cl}</div>
+            <div data-dni= "${dni_cl}" class="item">${dni_cl}</div>
             <div class="item">${tkt_cl}</div>
         </div>
     </div>
@@ -108,8 +108,9 @@ export const buildCards = (dni_cl, tkt_cl, nodo_serv, mac_serv, potencia_olt, po
         <div class="item">nodo: ${nodo_serv}</div>
         <div class="item">mac: ${mac_serv}</div>
     <div class="item">potencia:${get_potencia}</div>
-        <div class="item">degradado: ${isDegradado} /  -${potencia_status}dBm</div>
+        <div class="item">degradado: ${isDegradado} /  ${potencia_status != "" ? potencia_status + 'dBm' : 'sin datos'}</div>
         <div class="item">Observaciones: ${obs_cl}</div>
+        <div class="item">Estado: ${ctrl_proccess}</div>
     </div>
     <div class="card footer __flex">
         <div class="item">editar</div>
