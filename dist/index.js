@@ -1,6 +1,10 @@
 const request = new XMLHttpRequest();
 
-import { get_status, get_campos, buildCards } from './functions.js'
+import {
+    get_status,
+    get_campos,
+    buildCards
+} from './functions.js'
 let ctrlBoxSecondary = document.querySelector(".container__box-secundary");
 
 let formGetTipi = document.querySelector("#gen_tipi");
@@ -14,15 +18,17 @@ document.querySelector("a[type=menu]").addEventListener("click", (e) => {
     // e.preventDefault();
     let tipi_generada = "";
     tipi_generada += get_campos("nojson")
-    document.querySelectorAll("input[type=checkbox]").forEach(e => {
-        if (e.checked == true) {
-            tipi_generada += e.parentNode.innerText.replace(/\[.+?]/g, "") + " /"
-        }
-    })
+    // document.querySelectorAll("input[type=checkbox]").forEach(e => {
+    //     if (e.checked == true) {
+    //         tipi_generada += e.parentNode.innerText.replace(/\[.+?]/g, "") + " /"
+    //     }
+    // })
     var content = document.getElementById('copy_gen');
     content.innerHTML = tipi_generada;
     content.style.display = "block";
-    content.focus(); content.select(); document.execCommand('copy')
+    content.focus();
+    content.select();
+    document.execCommand('copy')
     content.style.display = "none";
 })
 
