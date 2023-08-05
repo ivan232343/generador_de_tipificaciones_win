@@ -79,5 +79,8 @@ document.querySelectorAll(".cabecera .item").forEach((e) => {
         console.log(l.target.dataset.topen)
     })
 })
-
+document.getElementById("mac_serv").addEventListener("input", (e) => {
+    let valueMac = e.target.value
+    e.target.value = valueMac.replace("48575443", "HWTC")
+})
 // const reload = () => document.getElementById("hist_today").innerHTML = "" && getToday()
