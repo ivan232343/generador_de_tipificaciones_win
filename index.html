@@ -5,17 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Generador de tipificaciones</title>
+    <title>Tipificador</title>
 </head>
 
 <body>
     <button class="open_popup">Abrir el generador</button>
     <script>
         let formatter_uri = window.location.href + "index2.html"
+        let id = 0;
         document.querySelector(".open_popup").addEventListener('click', () => {
-            document.open(formatter_uri, "nueva",
+            document.open(formatter_uri, "Formulario nro" + id,
                 "screenX=-1,screenY=-1,width=330,height=630,resizable=no, toolbar=no, scrollbars=no, menubar=no, status=no, directories=no"
             );
+            id++;
         })
     </script>
 </body>

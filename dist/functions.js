@@ -55,8 +55,8 @@ export function get_campos(format = "json") {
     let toLocalStorage = "";
     document.querySelectorAll("input[type=text],#obs_cl,select").forEach(e => {
         if (format == "json") {
-            toLocalStorage += `{"${e.name}":"${e.value}"}`
-            toLocalStorage = toLocalStorage.replace("}{", ",")
+            console.log(e.name,e.value)
+            toLocalStorage += `{"${e.name}":"${e.value.replace(/\n/g,'\\n')}"}`
         } else {
             toLocalStorage += `${e.parentNode.innerText}: ${e.value}/ `
         }
