@@ -1,5 +1,9 @@
-import { procesos } from '../dist/data/procesos.js';
-import { status_tickets } from './data/base.js';
+import {
+    procesos
+} from '../dist/data/procesos.js';
+import {
+    status_tickets
+} from './data/base.js';
 let ctrl_proccess = document.querySelector("#ctrl_proccess");
 let hora = new Date();
 let ctrlBoxSecondary = document.querySelector(".container__box-secundary");
@@ -8,17 +12,17 @@ const PotenciaBox = document.querySelector(".-potencias")
 export function get_status() {
     let rellenar = "";
     status_tickets.forEach(e => {
-        rellenar += `<option value="${e.name.replace(" ", "_")}">${e.name}</option>`;
+        rellenar += `<option value="${e.name.replaceAll(" ", "_")}">${e.name}</option>`;
     })
     ctrl_proccess.innerHTML += rellenar;
 }
-// export function get_process() {
-//     let rellenar = "";
-//     procesos.forEach(e => {
-//         rellenar += `<option value="${e.code_name}">${e.nombre}</option>`;
-//     })
-//     ctrl_proccess.innerHTML += rellenar;
-// }
+export function get_process() {
+    let rellenar = "";
+    procesos.forEach(e => {
+        rellenar += `<option value="${e.code_name}">${e.nombre}</option>`;
+    })
+    ctrl_proccess.innerHTML += rellenar;
+}
 
 let validate_potencia = document.querySelector("#potencia_olt")
 let chng_icons = document.querySelector(".mdi_chng")
@@ -33,7 +37,10 @@ function calc_potencia(onu, olt) {
         diff = -30.0
         vt = true
     }
-    return { "diferencia": diff, "require": vt }
+    return {
+        "diferencia": diff,
+        "require": vt
+    }
 }
 
 PotenciaBox.querySelector("#potencia_olt").addEventListener("input", (lis) => {
@@ -51,47 +58,30 @@ PotenciaBox.querySelector("#potencia_olt").addEventListener("input", (lis) => {
     console.log(val)
 })
 
-export function get_campos(format = "json") {
+export function get_campos(format = "json", type = "general") {
     let toLocalStorage = "";
-    document.querySelectorAll("input[type=text],#obs_cl,select").forEach(e => {
-        if (format == "json") {
-            console.log(e.name,e.value)
+    if (format == "json") {
+        let hora = new Date();
+        document.querySelectorAll("input[type=text],#obs_cl,select").forEach(e => {
             toLocalStorage += `{"${e.name}":"${e.value.replace(/\n/g,'\\n')}"}`
-        } else {
-            toLocalStorage += `${e.parentNode.innerText}: ${e.value}/ `
+        })
+        toLocalStorage += `{"createOn":"${hora.getDate()}/${hora.getMonth() + 1}/${hora.getFullYear()}T${hora.getHours()}:${hora.getMinutes()}"}`
+        toLocalStorage = toLocalStorage.replaceAll("}{", ",")
+    } else {
+        if (type == "general") {
+            document.querySelectorAll("input[type=text],#obs_cl,select").forEach(e => {
+                toLocalStorage += `_${e.name}: ${e.value}/`
+            })
+            toLocalStorage = toLocalStorage.replaceAll("/_", "/").replace(/.$/, '').replace("_", '')
         }
-    })
-    toLocalStorage += `{"createOn":"${hora.getDate()}/${hora.getMonth() + 1}/${hora.getFullYear()}T${hora.getHours()}:${hora.getMinutes()}"}`
-    toLocalStorage = toLocalStorage.replaceAll("}{", ",")
+    }
     return toLocalStorage;
 }
-
-ctrl_proccess.addEventListener("change", (ele) => {
-    let elementoARellenar = "";
-    procesos.forEach(u => {
-        // console.log(u)
-        if (u.code_name === ele.target.value) {
-            u.listado.forEach(i => {
-                // console.log();
-                elementoARellenar += `
-                    <div class="container__box-item">
-                        <label for="${i.id}">
-                            <input type="checkbox" name="${i.id}" id="${i.id}"> ${i.desc}
-                        </label>
-                    </div>
-                    `
-            })
-            // console.log(elementoARellenar);
-            ctrlBoxSecondary.innerHTML = elementoARellenar
-        }
-    })
-})
-
 export const buildCards = (dni_cl, tkt_cl, nodo_serv, mac_serv, potencia_olt, potencia_onu, potencia_status, obs_cl, nombre_cl, ctrl_proccess) => {
     let cardBox = document.querySelector(".card.box");
     const initCard = document.createElement("div");
     const get_potencia = (potencia_olt != "" || potencia_onu != "") ? `${potencia_olt}dBm / ${potencia_onu}dBm` : `Sin datos`;
-    const isDegradado = (potencia_onu >= -25.5 && potencia_olt >= -30.0) ? (potencia_onu - potencia_olt) >= -5.5 ? 'no' : 'si ' : 'si';
+    const isDegradado = (potencia_onu >= -25.5 && potencia_olt >= -30.0) ? (potencia_onu - potencia_olt) <= -5.5 ? 'no' : 'si ' : 'si';
     cardBox.appendChild(initCard);
     initCard.classList.add("card", "content");
     initCard.innerHTML += `
@@ -117,3 +107,8 @@ export const buildCards = (dni_cl, tkt_cl, nodo_serv, mac_serv, potencia_olt, po
     </div>
      `
 }
+
+
+
+// const elements = ['Fire', 'Air', 'Water'];
+// console.log(elements.join(',#').replace(/^./, "#$&"));

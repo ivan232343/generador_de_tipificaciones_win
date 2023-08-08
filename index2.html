@@ -36,11 +36,11 @@
                                 <input type="text" name="dni_cl" id="dni_cl" required>
                             </label>
                         </div>
-                        <div class="container__box-item">
+                        <!-- <div class="container__box-item">
                             <label for="nodo_serv">Nodo
                                 <input type="text" name="nodo_serv" id="nodo_serv" required>
                             </label>
-                        </div>
+                        </div> -->
                         <div class="container__box-item">
                             <label for="mac_serv">MAC
                                 <input type="text" name="mac_serv" id="mac_serv" required>
@@ -75,12 +75,48 @@
 
                     </div>
                     <div class="container__box-secundary __flex -column">
-                        <!-- Aqui se generaran los checkbox del itinerario del proceso -->
+                        <div class="bxfsh _hidden">
+                            <div class="container__box-item">
+                                <label for="categoria">Categoría</label>
+                                <select name="categoria" id="categoria">
+                                    <option value="0" disabled selected>Seleccione...</option>
+                                </select>
+                            </div>
+                            <div class="container__box-item _hidden _force">
+                                <label for="caso">Caso</label>
+                                <select name="caso" id="caso">
+                                    <!-- select con los {3} procesos que hay -->
+                                    <option value="0" disabled selected>Seleccione...</option>
+                                </select>
+                            </div>
+                            <div class="container__box-item _hidden _force">
+                                <label for="tipo">Tipo</label>
+                                <select name="tipo" id="tipo">
+                                    <!-- select con los {3} procesos que hay -->
+                                    <option value="0" disabled selected>Seleccione...</option>
+                                </select>
+                            </div>
+                            <div class="container__box-item _hidden _force">
+                                <label for="diagnostico">Diagnóstico</label>
+                                <select name="diagnostico" id="diagnostico">
+                                    <!-- select con los {3} procesos que hay -->
+                                    <option value="0" disabled selected>Seleccione...</option>
+                                </select>
+                            </div>
+                            <div class="container__box-item _hidden _force">
+                                <label for="solucion">Solucion</label>
+                                <select name="solucion" id="solucion">
+                                    <!-- select con los {3} procesos que hay -->
+                                    <option value="0" disabled selected>Seleccione...</option>
+                                </select>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="container__box-btnfooter __flex">
+                    <div class="container__box-btnfooter __flex j_c _s_a">
                         <!--aqui iran los botones  -->
-                        <a type="menu">generar tipificacion</a>
-                        <button type="submit">Limpiar</button>
+                        <a class="btn btn-footer" type="menu">generar tipificacion</a>
+                        <button class="btn btn-footer" type="submit">Limpiar</button>
                     </div>
                 </div>
             </form>
@@ -95,5 +131,6 @@
 </body>
 <script src="dist/functions.js" type="module"></script>
 <script src="dist/index.js" type="module"></script>
+<script src="dist/plantillas_functs.js" type="module"></script>
 
 </html>

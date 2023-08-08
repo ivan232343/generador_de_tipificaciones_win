@@ -2,12 +2,40 @@
 @import url(icons.css);
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 body {
+  height: 100vh;
   overflow: hidden;
   font-family: "Roboto", "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 main {
-  margin: 0.5rem;
+  margin: auto;
+  max-width: 17rem;
+}
+
+body,
+option {
+  background: black;
+}
+
+input,
+button,
+textarea,
+label,
+a,
+header,
+select,
+.card.content,
+select {
+  background: transparent;
+  color: white;
+}
+
+input,
+button,
+textarea,
+a {
+  border: solid 0.5px;
+  border-radius: 0.1rem;
 }
 
 textarea {
@@ -16,8 +44,23 @@ textarea {
 }
 
 .cabecera.__flex {
+  border-bottom: solid 1px;
   justify-content: space-evenly;
-  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.cabecera.__flex .item {
+  width: 100%;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+.cabecera.__flex .item:nth-child(1)::after {
+  content: "";
+  background: white;
+  position: absolute;
+  top: 0px;
+  right: 50%;
+  height: 2.2rem;
+  width: 0.15rem;
 }
 
 .__flex {
@@ -28,6 +71,9 @@ textarea {
 }
 .__flex.-row {
   flex-direction: row;
+}
+.__flex.j_c._s_a {
+  justify-content: space-around;
 }
 .__flex .container__box-item {
   padding: 0.2rem;
@@ -42,7 +88,7 @@ textarea {
 
 .container__box-secundary {
   overflow: hidden auto;
-  height: 15vh;
+  height: 25vh;
 }
 .container__box-secundary .container__box-item {
   display: flex;
@@ -62,6 +108,9 @@ h4 {
 
 ._hidden {
   display: none;
+}
+._hidden._force {
+  display: none !important;
 }
 
 .card.box {
@@ -86,11 +135,16 @@ h4 {
 }
 .card.tittle .subname_cliente {
   justify-content: space-around;
-  color: #62328d;
 }
 
 .box.-potencias {
   width: 93%;
+}
+
+.btn.btn-footer {
+  padding: 0.5rem;
+  width: 35%;
+  text-align: center;
 }
 
 .notext {

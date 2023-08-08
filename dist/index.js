@@ -14,23 +14,7 @@ window.onload = () => {
     get_status()
     getToday()
 }
-document.querySelector("a[type=menu]").addEventListener("click", (e) => {
-    // e.preventDefault();
-    let tipi_generada = "";
-    tipi_generada += get_campos("nojson")
-    // document.querySelectorAll("input[type=checkbox]").forEach(e => {
-    //     if (e.checked == true) {
-    //         tipi_generada += e.parentNode.innerText.replace(/\[.+?]/g, "") + " /"
-    //     }
-    // })
-    var content = document.getElementById('copy_gen');
-    content.innerHTML = tipi_generada;
-    content.style.display = "block";
-    content.focus();
-    content.select();
-    document.execCommand('copy')
-    content.style.display = "none";
-})
+
 
 formGetTipi.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -82,5 +66,9 @@ document.querySelectorAll(".cabecera .item").forEach((e) => {
 document.getElementById("mac_serv").addEventListener("input", (e) => {
     let valueMac = e.target.value
     e.target.value = valueMac.replace("48575443", "HWTC")
+})
+document.getElementById("tkt_cl").addEventListener("input", (e) => {
+    let valueTkt = e.target.value.replace("AT-", "")
+    e.target.value = 'AT-' + valueTkt
 })
 // const reload = () => document.getElementById("hist_today").innerHTML = "" && getToday()
