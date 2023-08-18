@@ -32,8 +32,9 @@ formGetTipi.addEventListener("submit", (e) => {
         toLocal.nombre_cl,
         toLocal.ctrl_proccess
     )
-    ctrlBoxSecondary.innerHTML = "";
+    // ctrlBoxSecondary.innerHTML = "";
     formGetTipi.reset();
+    document.querySelector('.bxfsh').classList.add('_hidden')
 })
 
 const getToday = () => {
@@ -71,4 +72,10 @@ document.getElementById("tkt_cl").addEventListener("input", (e) => {
     let valueTkt = e.target.value.replace("AT-", "")
     e.target.value = 'AT-' + valueTkt
 })
+
+function LimitChar() {
+    document.querySelectorAll(".card.contenido").forEach((e) => {
+        e.textContent = e.textContent.substring(0, 300)
+    });
+}
 // const reload = () => document.getElementById("hist_today").innerHTML = "" && getToday()

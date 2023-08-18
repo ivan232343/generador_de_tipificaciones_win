@@ -13,7 +13,8 @@ main {
 }
 
 body,
-option {
+option,
+optgroup {
   background: black;
 }
 
@@ -46,7 +47,7 @@ textarea {
 .cabecera.__flex {
   border-bottom: solid 1px;
   justify-content: space-evenly;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 .cabecera.__flex .item {
   width: 100%;
@@ -97,8 +98,9 @@ textarea {
   flex-direction: column;
 }
 .container__box-secundary .container__box-item label {
-  width: 93%;
+  -webkit-user-select: none;
   user-select: none;
+  width: 93%;
 }
 
 p,
@@ -128,7 +130,7 @@ h4 {
   padding: 0.25rem;
 }
 .card.footer {
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 .card.tittle {
   text-align: center;
@@ -142,11 +144,12 @@ h4 {
 }
 
 .btn.btn-footer {
-  padding: 0.5rem;
+  padding: 0.2rem 0.5rem;
   width: 35%;
   text-align: center;
 }
 
 .notext {
+  -webkit-user-select: none;
   user-select: none;
 }

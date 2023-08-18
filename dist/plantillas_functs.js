@@ -7,7 +7,13 @@ let ctrlBoxSecondary = document.querySelector(".container__box-secundary");
 let boxMaster = document.querySelector('.bxfsh')
 ctrl_proccess.addEventListener("change", (ele) => {
     let elementoARellenar = "";
+    for (let i = 0; i < ctrlBoxSecondary.children.length; i++) {
+        if (!ctrlBoxSecondary.children[i].classList.contains("_hidden")) {
+            ctrlBoxSecondary.children[i].classList.add("_hidden")
+        }
 
+    }
+    console.log()
     let rellenar = "";
     if (ele.target.value === 'cerrado' || ele.target.value === 'noc' || ele.target.value === 'visita_tecnica') {
         boxMaster.classList.remove('_hidden')
@@ -17,6 +23,8 @@ ctrl_proccess.addEventListener("change", (ele) => {
             rellenar += `<option value="${e.categoria}">${e.categoria.replaceAll("_"," ")}</option>`;
         })
         dentroDelSelect.innerHTML += rellenar;
+    } else if (ele.target.value === 'no_contesta') {
+        document.querySelector(".bxncts").classList.remove("_hidden")
     } else {
         boxMaster.classList.add('_hidden')
     }
@@ -27,7 +35,7 @@ ctrl_proccess.addEventListener("change", (ele) => {
             if (PlantillasBitacora[i].categoria == e.target.value) {
                 for (let id = 0; id < keys.length; id++) {
                     const ele = keys[id];
-                    document.querySelector(`select#${ele}`).innerHTML = '<option value="0" disabled="" selected="">Seleccione...</option>'
+                    document.querySelector("select#" + ele).innerHTML = '<option value="0"  selected="">Seleccione...</option>'
                     let template = "";
                     // console.log(PlantillasBitacora[i][keys[id]])
                     PlantillasBitacora[i].proceso[keys[id]].forEach((element) => {
@@ -35,7 +43,7 @@ ctrl_proccess.addEventListener("change", (ele) => {
                         // if (keys[id] === PlantillasBitacora[i].proceso)
                     })
                     // console.log(document.querySelector(`#${ele}`))
-                    document.querySelector(`#${ele}`).innerHTML += template
+                    document.querySelector("select#" + ele).innerHTML += template
                     // console.log(ele === document.getElementById(ele).name);
                 }
                 boxMaster.querySelectorAll("._hidden").forEach((e) => {
@@ -49,14 +57,38 @@ ctrl_proccess.addEventListener("change", (ele) => {
     })
 })
 document.querySelector("a[type=menu]").addEventListener("click", (e) => {
-    // e.preventDefault();
     let tipi_generada = "";
-    tipi_generada += get_campos("nojson")
-    // document.querySelectorAll("input[type=checkbox]").forEach(e => {
-    //     if (e.checked == true) {
-    //         tipi_generada += e.parentNode.innerText.replace(/\[.+?]/g, "") + " /"
-    //     }
-    // })
+    let FinishText = "";
+    if (
+        ctrl_proccess.value === 'cerrado' ||
+        ctrl_proccess.value === 'visita_tecnica' ||
+        ctrl_proccess.value === 'noc'
+    ) {
+        let a = [];
+        document.querySelectorAll("select").forEach((element) => {
+            if (element.name !== "ctrl_proccess" && element.value !== "0" && element.name !== "select_plantillac") {
+                a.push(element.value.replace(/_/g, " "));
+            }
+        });
+        FinishText = document.querySelector("#obs_cl").value
+        tipi_generada = `${a.join("/")}_ ${FinishText} // cl brinda conformidad se cierra tkt`
+    } else if (ctrl_proccess.value === 'no_contesta') {
+        let a = [];
+        let numberformat = "";
+        document.querySelectorAll("input.numero").forEach((element) => {
+            a.push(element.value);
+        });
+        numberformat = a.join("-")
+        numberformat = a[1] == "" ? numberformat.replace("-", "") : numberformat
+        tipi_generada = `NO CONTESTA/Intentamos comunicarnos con el cliente a los números ${numberformat}. Sin éxito, se retoma el caso en el transcurso del día.`
+    } else if (ctrl_proccess.value === 'agenda_prolongada' || ctrl_proccess.value === 'validacion') {
+        document.querySelectorAll("#nombre_cl,#numero1")
+        let nombreCl = document.getElementById("nombre_cl")
+        tipi_generada = `${ctrl_proccess.value.toUpperCase().replace("_"," ")}/Contacto:${nombreCl.value},Número ${numero}.Contactar el 9/08/2023 a las 09:00`
+        'AGENDA PROLONGADA/Contacto: LIVIA MONICA VERTIZ BRIOLO, Número: 994041287. Contactar el 9/08/2023 a las 09:00'
+    } else {
+
+    }
     var content = document.getElementById('copy_gen');
     content.innerHTML = tipi_generada;
     content.style.display = "block";

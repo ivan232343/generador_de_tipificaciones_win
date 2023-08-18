@@ -1,9 +1,7 @@
-export const procesos = [
-    {
+export const procesos = [{
         "nombre": "Flujo de Luces verdes (Sin internet)",
         "code_name": "noNet_ponOK",
-        "listado": [
-            {
+        "listado": [{
                 "id": "ip_olt_nook",
                 "desc": "Figura ip en smart OLT"
             },
@@ -128,8 +126,7 @@ export const procesos = [
     {
         "nombre": "Servicios especiales",
         "code_name": "serv_esp",
-        "listado": [
-            {
+        "listado": [{
                 "id": "problem_type",
                 "desc": "El problema se presenta en -> _____"
             },
@@ -206,8 +203,7 @@ export const procesos = [
     {
         "nombre": "Lentitud / ancho de banda",
         "code_name": "slowed_net",
-        "listado": [
-            {
+        "listado": [{
                 "id": "validate_plan_plus",
                 "desc": "se verifica el plan asignado en smart OLT"
             },
@@ -372,8 +368,7 @@ export const procesos = [
     {
         "nombre": "Flujo de intermitencia",
         "code_name": "intermitencia",
-        "listado": [
-            {
+        "listado": [{
                 "id": "validate_plan_plus",
                 "desc": "se verifica el plan asignado en smart OLT"
             },
@@ -545,7 +540,8 @@ export const procesos = [
         "listado": [
 
         ]
-    }]
+    }
+]
 //  [
 //     {
 //         "nombre": "Flujo de Luces verdes (Sin internet)",

@@ -37,9 +37,7 @@
                             </label>
                         </div>
                         <!-- <div class="container__box-item">
-                            <label for="nodo_serv">Nodo
-                                <input type="text" name="nodo_serv" id="nodo_serv" required>
-                            </label>
+                      
                         </div> -->
                         <div class="container__box-item">
                             <label for="mac_serv">MAC
@@ -61,6 +59,32 @@
                         </div>
                         <div class="container__box-item">
                             <label for="obs_cl">Observaciones
+                                <select name="select_plantillac" id="select_plantillac" class="select_plantillac">
+                                    <optgroup label="Cableado">
+                                        <option value="Perdida_de_conexion">Perdida de conexion</option>
+                                        <option value="Lentitud">Lentitud</option>
+                                        <option value="Perdida_de_conexion">Perdida de conexion</option>
+                                        <option value="Lentitud">Lentitud</option>
+                                    </optgroup>
+                                    <optgroup label="WiFi">
+                                        <option value="Perdida_de_conexion">Perdida de conexion</option>
+                                        <option value="Lentitud">Lentitud</option>
+                                    </optgroup>
+                                    <optgroup label="Derivacion">
+                                        <option value="NOC - Ancho de banda">NOC - Ancho de banda</option>
+                                        <option value="NOC - Intermitencias">NOC - Intermitencias</option>
+                                        <option value="NOC - WinPhone">NOC - WinPhone</option>
+                                        <option value="NOC - Web">NOC - Web</option>
+                                        <option value="NOC - VPN">NOC - VPN</option>
+                                    </optgroup>
+                                    <optgroup label="Otros">
+                                        <option value="Paginas_web">Paginas web</option>
+                                        <option value="App">App</option>
+                                        <option value="VPN">VPN</option>
+                                        <option value="Acceso a juego">Acceso a juego</option>
+                                    </optgroup>
+
+                                </select>
                                 <textarea type="text" name="obs_cl" id="obs_cl"></textarea>
                             </label>
                         </div>
@@ -111,7 +135,19 @@
                                 </select>
                             </div>
                         </div>
-
+                        <div class="bxncts _hidden">
+                            <div class="container__box-item ">
+                                <label for="Numero1">Numero 1</label>
+                                <input type="number" name="Numero1" id="numero1" class="numero" placeholder="num">
+                            </div>
+                            <div class="container__box-item ">
+                                <label for="Numero2">Numero 2</label>
+                                <input type="number" name="Numero1" id="numero2" class="numero">
+                            </div>
+                        </div>
+                        <div class="bxagpro _hidden"></div>
+                        <div class="bxval _hidden"></div>
+                        <div class="bxextt _hidden"></div>
                     </div>
                     <div class="container__box-btnfooter __flex j_c _s_a">
                         <!--aqui iran los botones  -->

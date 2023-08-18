@@ -99,11 +99,12 @@ export const buildCards = (dni_cl, tkt_cl, nodo_serv, mac_serv, potencia_olt, po
         <div class="item">mac: ${mac_serv}</div>
     <div class="item">potencia:${get_potencia}</div>
         <div class="item">degradado: ${isDegradado} /  ${potencia_status != "" ? potencia_status + 'dBm' : 'sin datos'}</div>
-        <div class="item">Observaciones: ${obs_cl}</div>
-        <div class="item">Estado: ${ctrl_proccess}</div>
-    </div>
-    <div class="card footer __flex">
+        <div class="item">Observaciones: ${obs_cl.length>=100? obs_cl.substring(0, 100)+" ...":obs_cl}</div>
+        </div>
+        <div class="card footer __flex notext">
+        <div class="item">Estado: ${ctrl_proccess.replaceAll("_"," ")}</div>
         <div class="item">editar</div>
+        <div class="item">+</div>
     </div>
      `
 }
