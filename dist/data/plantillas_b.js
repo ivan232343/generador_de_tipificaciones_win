@@ -2,7 +2,7 @@ export const PlantillasBitacora = [{
         'categoria': 'FONOWIN',
         'proceso': {
             'caso': [
-                'Límite de minutos', 'Portabilidad', 'Sin acceso App FONOWIN', 'Sin E/R llamadas', 'Sin servicio', 'Solicitud de cambio de equipo', 'Mal derivado - Cambio de número', 'Mal derivado - DGO', 'Mal derivado - GAMER', 'Mal derivado - Historial llamadas', 'Mal derivado - Límite de minutos', 'Mal derivado - Solicitud de BAJA', 'Mal derivado - Solicitud SVA FONOWIN', 'Mal derivado - SVA',
+                'Límite de minutos', 'Portabilidad', 'Sin acceso App FONOWIN', 'Sin E/R llamadas', 'Sin servicio', 'Solicitud de cambio de equipo', 'Mal derivado - Cambio de número', 'Mal derivado - DGO', 'Mal derivado - GAMER', 'Mal derivado - Historial llamadas', 'Mal derivado - Límite de minutos', 'Mal derivado - Numero pendiente', 'Mal derivado - sin SVA', 'Mal derivado - Solicitud de BAJA', 'Mal derivado - Solicitud SVA FONOWIN',
             ],
             'tipo': [
                 'App FONOWIN', 'Equipo fijo',

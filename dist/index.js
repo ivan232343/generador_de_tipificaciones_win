@@ -69,7 +69,7 @@ document.getElementById("mac_serv").addEventListener("input", (e) => {
     e.target.value = valueMac.replace("48575443", "HWTC")
 })
 document.getElementById("tkt_cl").addEventListener("input", (e) => {
-    let valueTkt = e.target.value.replace("AT-", "")
+    let valueTkt = e.target.value.replaceAll("AT-", "")
     e.target.value = 'AT-' + valueTkt
 })
 

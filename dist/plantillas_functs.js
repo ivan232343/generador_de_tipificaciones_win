@@ -20,7 +20,7 @@ ctrl_proccess.addEventListener("change", (ele) => {
         let dentroDelSelect = boxMaster.querySelector('#categoria')
         dentroDelSelect.innerHTML = '<option value="0" disabled="" selected="">Seleccione...</option>'
         PlantillasBitacora.forEach((e) => {
-            rellenar += `<option value="${e.categoria}">${e.categoria.replaceAll("_"," ")}</option>`;
+            rellenar += `<option value="${e.categoria}">${e.categoria.replaceAll("_", " ")}</option>`;
         })
         dentroDelSelect.innerHTML += rellenar;
     } else if (ele.target.value === 'no_contesta') {
@@ -59,10 +59,11 @@ ctrl_proccess.addEventListener("change", (ele) => {
 document.querySelector("a[type=menu]").addEventListener("click", (e) => {
     let tipi_generada = "";
     let FinishText = "";
+    let status = ctrl_proccess.value
     if (
-        ctrl_proccess.value === 'cerrado' ||
-        ctrl_proccess.value === 'visita_tecnica' ||
-        ctrl_proccess.value === 'noc'
+        status === 'cerrado' ||
+        status === 'visita_tecnica' ||
+        status === 'noc'
     ) {
         let a = [];
         document.querySelectorAll("select").forEach((element) => {
@@ -71,20 +72,21 @@ document.querySelector("a[type=menu]").addEventListener("click", (e) => {
             }
         });
         FinishText = document.querySelector("#obs_cl").value
-        tipi_generada = `${a.join("/")}_ ${FinishText} // cl brinda conformidad se cierra tkt`
-    } else if (ctrl_proccess.value === 'no_contesta') {
+        tipi_generada = `${a.join("/")}_ ${FinishText} ${status === 'cerrado' ? " cl brinda conformidad se cierra tkt" : ""}`
+    } else if (status === 'no_contesta') {
         let a = [];
         let numberformat = "";
         document.querySelectorAll("input.numero").forEach((element) => {
             a.push(element.value);
         });
         numberformat = a.join("-")
-        numberformat = a[1] == "" ? numberformat.replace("-", "") : numberformat
-        tipi_generada = `NO CONTESTA/Intentamos comunicarnos con el cliente a los números ${numberformat}. Sin éxito, se retoma el caso en el transcurso del día.`
-    } else if (ctrl_proccess.value === 'agenda_prolongada' || ctrl_proccess.value === 'validacion') {
-        document.querySelectorAll("#nombre_cl,#numero1")
-        let nombreCl = document.getElementById("nombre_cl")
-        tipi_generada = `${ctrl_proccess.value.toUpperCase().replace("_"," ")}/Contacto:${nombreCl.value},Número ${numero}.Contactar el 9/08/2023 a las 09:00`
+        numberformat = a[1] == "" ? numberformat.replace("-", "") : numberformat;
+        let ticketID = document.querySelector('#tkt_cl').value
+        tipi_generada = `NO CONTESTA/Intentamos comunicarnos con el cliente a los números ${numberformat}. Sin éxito, se retoma el caso en el transcurso del día.\t${ticketID}`
+    } else if (status === 'agenda_prolongada' || status === 'validacion') {
+        let nombreCl = document.getElementById("nombre_cl").value;
+
+        tipi_generada = `${status.toUpperCase().replace("_", " ")}/Contacto:${nombreCl},Número ${numero}.Contactar el 9/08/2023 a las 09:00\t${ticketID}`
         'AGENDA PROLONGADA/Contacto: LIVIA MONICA VERTIZ BRIOLO, Número: 994041287. Contactar el 9/08/2023 a las 09:00'
     } else {
 
@@ -97,3 +99,4 @@ document.querySelector("a[type=menu]").addEventListener("click", (e) => {
     document.execCommand('copy')
     content.style.display = "none";
 })
+

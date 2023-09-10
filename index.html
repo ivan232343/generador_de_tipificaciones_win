@@ -5,17 +5,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="icons.css">
     <title>Tipificador</title>
 </head>
 
 <body>
-    <button class="open_popup">Abrir el generador</button>
+    <style>
+        .buttons-box button {
+            height: fit-content;
+            margin: auto;
+        }
+
+        .buttons-box {
+            display: flex;
+            height: 100vh;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+    </style>
+    <div class="buttons-box">
+        <button class="open_popup">Formulario de tipficacion </button>
+        <button class="open_edit-template">Editar plantilla de bitacora AT </button>
+    </div>
     <script>
         let formatter_uri = window.location.href + "index2.html"
         let id = 0;
         document.querySelector(".open_popup").addEventListener('click', () => {
             document.open(formatter_uri, "Formulario nro" + id,
-                "screenX=-1,screenY=-1,width=330,height=630,resizable=no, toolbar=no, scrollbars=no, menubar=no, status=no, directories=no"
+                "screenX=-1,screenY=-1,width=330,height=630,resizable=no, toolbar=false, scrollbars=no, menubar=false, status=no, directories=no"
+            );
+            id++;
+        })
+        let template = window.location.href + "index3.html"
+        document.querySelector(".open_edit-template").addEventListener('click', () => {
+            document.open(template, "Formulario nro" + id,
+                "screenX=-1,screenY=-1,width=330,height=630,resizable=no, toolbar=false, scrollbars=no, menubar=false, status=no, directories=no"
             );
             id++;
         })
