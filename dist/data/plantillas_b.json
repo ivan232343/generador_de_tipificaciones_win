@@ -17,11 +17,11 @@
                 "Mal derivado - Numero pendiente",
                 "Mal derivado - sin SVA",
                 "Mal derivado - Solicitud de BAJA",
-                "Mal derivado - Solicitud SVA FONOWIN",
+                "Mal derivado - Solicitud SVA FONOWIN"
             ],
             "tipo": [
                 "App FONOWIN",
-                "Equipo fijo",
+                "Equipo fijo"
             ],
             "diagnostico": [
                 "Credenciales erróneas",
@@ -33,7 +33,7 @@
                 "Problema físico",
                 "Sin configuración",
                 "Sin número en BBDD",
-                "Sin VLAN 20",
+                "Sin VLAN 20"
             ],
             "solucion": [
                 "Config._Cambio de WAN",
@@ -48,7 +48,7 @@
                 "Informativo dentro de plazo",
                 "Informativo equipos terceros",
                 "Informativo PORTABILIDAD",
-                "Número pendiente",
+                "Número pendiente"
             ]
         }
     },
@@ -67,7 +67,7 @@
                 "Mal derivado - GAMER",
                 "Mal derivado - Perfil de velocidad erróneo",
                 "Mal derivado - Sin acceso a Mi Portal",
-                "Mal derivado - Solicitud cableado",
+                "Mal derivado - Solicitud cableado"
             ],
             "tipo": [
                 "*.gob.pe",
@@ -79,7 +79,7 @@
                 "Pirata",
                 "rockstargames.com",
                 "Todas las web",
-                "Otros",
+                "Otros"
             ],
             "diagnostico": [
                 "Bloqueo de IP",
@@ -92,7 +92,7 @@
                 "Geolocalizacion",
                 "MESH fuera de cobertura",
                 "Potencia degradada",
-                "Utiliza una VPN",
+                "Utiliza una VPN"
             ],
             "solucion": [
                 "Cambio de cable ethernet",
@@ -117,7 +117,7 @@
                 "Reselección de canales WiFi",
                 "Reset de fábrica ONT",
                 "Sincronización MESH",
-                "VAS",
+                "VAS"
             ]
         }
     },
@@ -132,10 +132,10 @@
                 "Mal derivado - DGO",
                 "Mal derivado - GAMER",
                 "Mal derivado - Informativo velocidad contratada",
-                "Mal derivado - Perfil de velocidad erróneo",
+                "Mal derivado - Perfil de velocidad erróneo"
             ],
             "tipo": [
-                "Test de velocidad",
+                "Test de velocidad"
             ],
             "diagnostico": [
                 "Banda incorrecta",
@@ -157,7 +157,7 @@
                 "Test en consola",
                 "Test en TV",
                 "Utiliza una VPN",
-                "Web-test no confiable",
+                "Web-test no confiable"
             ],
             "solucion": [
                 "Cambio de cable ethernet",
@@ -186,7 +186,7 @@
                 "Reset de fábrica MESH",
                 "Reset de fábrica ONT",
                 "Sincronización MESH",
-                "VAS",
+                "VAS"
             ]
         }
     },
@@ -199,11 +199,11 @@
                 "Total",
                 "Mal derivado - Cliente empresas",
                 "Mal derivado - DGO",
-                "Mal derivado - GAMER",
+                "Mal derivado - GAMER"
             ],
             "tipo": [
                 "Específico",
-                "General",
+                "General"
             ],
             "diagnostico": [
                 "Band steering",
@@ -227,7 +227,7 @@
                 "Saturacion de ONT",
                 "Saturacion de red inalambrica",
                 "Saturacion local del ancho de banda",
-                "Temperatura de la ONT",
+                "Temperatura de la ONT"
             ],
             "solucion": [
                 "Cambio de cable ethernet",
@@ -253,7 +253,7 @@
                 "Reselección de canales WiFi",
                 "Reset de fábrica MESH",
                 "Reset de fábrica ONT",
-                "Sincronización MESH",
+                "Sincronización MESH"
             ]
         }
     },
@@ -268,14 +268,14 @@
                 "Mal derivado - Cliente empresas",
                 "Mal derivado - DGO",
                 "Mal derivado - GAMER",
-                "Mal derivado - Solicitud entrega de MESH",
+                "Mal derivado - Solicitud entrega de MESH"
             ],
             "tipo": [
                 "Luz blanca sin acceso a internet",
                 "Luz roja",
                 "No enciende",
                 "No sincroniza",
-                "Personalizar redes",
+                "Personalizar redes"
             ],
             "diagnostico": [
                 "Fallo fisico del mesh",
@@ -283,7 +283,7 @@
                 "Mesh externo",
                 "No sincroniza",
                 "Cable averiado",
-                "Sin acceso al mesh",
+                "Sin acceso al mesh"
             ],
             "solucion": [
                 "Cambio de cable ethernet",
@@ -295,7 +295,7 @@
                 "Reinicio de ONT",
                 "Reset de fábrica MESH",
                 "Sincronización MESH",
-                "Diferenciar redes ONT_MESH",
+                "Diferenciar redes ONT_MESH"
             ]
         }
     },
@@ -308,24 +308,24 @@
                 "Sin vista remota (Apps)",
                 "Mal derivado - Cliente empresas",
                 "Mal derivado - DGO",
-                "Mal derivado - GAMER",
+                "Mal derivado - GAMER"
             ],
             "tipo": [
                 "CCTV Análoga",
-                "CCTV IP",
+                "CCTV IP"
             ],
             "diagnostico": [
                 "CCTV Mal configurado",
                 "CGNAT no permite la visión",
                 "Potencia degradada",
-                "Sin conexión",
+                "Sin conexión"
             ],
             "solucion": [
                 "Apertura de puertos",
                 "Config. Gateway",
                 "Config. Peer to peer (P2P)",
                 "Envío a VT",
-                "Informativo CGNAT",
+                "Informativo CGNAT"
             ]
         }
     },
@@ -344,7 +344,7 @@
                 "Streaming",
                 "Mal derivado - Cliente empresas",
                 "Mal derivado - DGO",
-                "Mal derivado - GAMER",
+                "Mal derivado - GAMER"
             ],
             "tipo": [
                 "CoD",
@@ -355,7 +355,7 @@
                 "GTA V",
                 "LoL",
                 "Valorant ",
-                "<Ingresar juego >",
+                "<Ingresar juego >"
             ],
             "diagnostico": [
                 "Banda incorrecta",
@@ -367,7 +367,7 @@
                 "MASIVO Server",
                 "NAT correcta",
                 "Potencia degradada",
-                "Uiliza VPN",
+                "Uiliza VPN"
             ],
             "solucion": [
                 "Cambio de cable ethernet",
@@ -381,7 +381,7 @@
                 "Informativo WiFi - Bandas",
                 "Informativo WiFi - Cobertura",
                 "Reselección de canales WiFi",
-                "VAS",
+                "VAS"
             ]
         }
     },
@@ -395,7 +395,7 @@
                 "Mal derivado - Cliente empresas",
                 "Mal derivado - DGO",
                 "Mal derivado - GAMER",
-                "Mal derivado - Perfil de velocidad erróneo",
+                "Mal derivado - Perfil de velocidad erróneo"
             ],
             "tipo": [
                 "Celulares - Tablets",
@@ -403,7 +403,7 @@
                 "General",
                 "Laptops",
                 "PC",
-                "TV",
+                "TV"
             ],
             "diagnostico": [
                 "Banda incorrecta",
@@ -420,7 +420,7 @@
                 "Potencia degradada",
                 "Repetidor externo",
                 "Saturacion local del ancho de banda",
-                "Utiliza una VPN",
+                "Utiliza una VPN"
             ],
             "solucion": [
                 "Cambio de cable ethernet",
@@ -444,7 +444,7 @@
                 "Reselección de canales WiFi",
                 "Reset de fábrica ONT",
                 "Sincronización MESH",
-                "VAS",
+                "VAS"
             ]
         }
     },
@@ -461,12 +461,12 @@
                 "Mal derivado - Patchcord dañado por cliente",
                 "Mal derivado - Solicitud cableado",
                 "Mal derivado - Suspendido",
-                "Mal derivado - LOS en ROJO",
+                "Mal derivado - LOS en ROJO"
             ],
             "tipo": [
                 "General",
                 "Cableado",
-                "Wi - Fi",
+                "Wi - Fi"
             ],
             "diagnostico": [
                 "Cable averiado",
@@ -484,7 +484,7 @@
                 "Problema eléctrico",
                 "Repetidor externo",
                 "Sin VLAN_WAN",
-                "WLAN_LAN desactivado",
+                "WLAN_LAN desactivado"
             ],
             "solucion": [
                 "Cambio de cable ethernet",
@@ -506,7 +506,7 @@
                 "Reinicio de ONT",
                 "Reset de fábrica ONT",
                 "Sincronización MESH",
-                "VAS",
+                "VAS"
             ]
         }
     },
@@ -518,14 +518,14 @@
                 "Informativo",
                 "Mal derivado",
                 "No amerita soporte",
-                "Otros",
+                "Otros"
             ],
             "tipo": [
                 "Equipos terceros",
                 "MESH",
                 "ONT",
                 "WINBOX",
-                "Otros",
+                "Otros"
             ],
             "diagnostico": [
                 "Consulta comercial",
@@ -558,8 +558,8 @@
                 "Solicitud DOWNGRADE",
                 "Solucionado sin soporte",
                 "Whitelist_Blacklist",
-                "Winbox",
+                "Winbox"
             ]
         }
-    },
+    }
 ]
