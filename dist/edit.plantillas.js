@@ -2,7 +2,7 @@
 window.toEdit;
 let categorySelect = document.getElementById("category")
 const requestURL =
-    "https://s3.us-west-2.amazonaws.com/win.data/plantillas_b.json";
+    "https://ivan232343.github.io/generador_de_tipificaciones_win/dist/data/plantillas_b.json";
 const request = new XMLHttpRequest();
 request.open("GET", requestURL);
 request.getResponseHeader("Content-type", "application/json");
