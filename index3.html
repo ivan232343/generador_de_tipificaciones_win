@@ -1,9 +1,52 @@
-<section class="contendor">
-    <div class="box-content">
-        <div class="box-item">
+<!DOCTYPE html>
+<html lang="es-PE">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit template</title>
+</head>
+
+<body>
+    <style>
+        .box-content .box-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        textarea {
+            height: 5rem !important;
+            width: 98% !important;
+        }
+    </style>
+    <section class="contendor">
+        <div class="box-content">
+            <div class="box-item">
+                <label for="category">Categoria</label>
+                <select name="category" id="category">
+                    <option value="0" disabled selected>seleccione una opcion</option>
+                </select>
+            </div>
+            <div class="box-item">
+                <label for="caso">Caso</label>
+                <textarea name="caso" id="caso"></textarea>
+            </div>
+            <div class="box-item">
+                <label for="tipo">Tipo</label>
+                <textarea name="tipo" id="tipo"></textarea>
+            </div>
+            <div class="box-item">
+                <label for="diagnostico">Diagnostico</label>
+                <textarea name="diagnostico" id="diagnostico"></textarea>
+            </div>
+            <div class="box-item">
+                <label for="solucion">Solucion</label>
+                <textarea name="solucion" id="solucion"></textarea>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<script type="module" src="dist/edit.plantillas.js"></script>
+    <script type="module" src="dist/edit.plantillas.js"></script>
+</body>
+
+</html>
