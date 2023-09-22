@@ -2,7 +2,7 @@
 window.toEdit;
 let categorySelect = document.getElementById("category")
 const requestURL =
-    "https://ivan232343.github.io/generador_de_tipificaciones_win/dist/data/plantillas_b.json";
+    "http://192.168.18.76:8080/ProcessListWIN_offline/dist/data/plantillas_b.json";
 const request = new XMLHttpRequest();
 request.open("GET", requestURL);
 request.getResponseHeader("Content-type", "application/json");
@@ -39,4 +39,15 @@ categorySelect.addEventListener("change", (ele) => {
     window.toEdit.forEach(cat => cat.categoria == ele.target.value ? llenarTodo(ele.target.value) : false)
 })
 
-
+function saveTo() {
+    let selected = document.getElementById("category");
+    document.querySelectorAll("textarea").forEach((e) => {
+        window.toEdit[selected.selectedIndex - 1].proceso[e.name] = e.value.split("\n")
+    });
+    // const URI = "https://ivan232343.github.io/generador_de_tipificaciones_win/dist/data/plantillas_b.json";
+    const request = new XMLHttpRequest();
+    request.open("PUT", requestURL);
+    request.getResponseHeader("Content-type", "application/json");
+    request.send(JSON.stringify(window.toEdit));
+    request.onload = () => { console.log(request.response) }
+}

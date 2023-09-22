@@ -381,7 +381,8 @@
                 "Informativo WiFi - Bandas",
                 "Informativo WiFi - Cobertura",
                 "Reselección de canales WiFi",
-                "VAS"
+                "VAS",
+                "Envio a NOC"
             ]
         }
     },

@@ -102,7 +102,9 @@ textarea {
   user-select: none;
   width: 93%;
 }
-
+.container__box-secundary input {
+  width: 90%;
+}
 p,
 h4 {
   margin: 0.2rem;
@@ -152,4 +154,14 @@ h4 {
 .notext {
   -webkit-user-select: none;
   user-select: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
 }

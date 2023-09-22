@@ -2,7 +2,7 @@ import {
     PlantillasBitacora
 } from '../dist/data/plantillas_b.js'
 let ctrl_proccess = document.querySelector("#ctrl_proccess");
-let hora = new Date();
+const ocultar = (elemento) => { document.querySelector(elemento).classList.remove("_hidden") }
 let ctrlBoxSecondary = document.querySelector(".container__box-secundary");
 let boxMaster = document.querySelector('.bxfsh')
 ctrl_proccess.addEventListener("change", (ele) => {
@@ -11,9 +11,7 @@ ctrl_proccess.addEventListener("change", (ele) => {
         if (!ctrlBoxSecondary.children[i].classList.contains("_hidden")) {
             ctrlBoxSecondary.children[i].classList.add("_hidden")
         }
-
     }
-    console.log()
     let rellenar = "";
     if (ele.target.value === 'cerrado' || ele.target.value === 'noc' || ele.target.value === 'visita_tecnica') {
         boxMaster.classList.remove('_hidden')
@@ -24,7 +22,11 @@ ctrl_proccess.addEventListener("change", (ele) => {
         })
         dentroDelSelect.innerHTML += rellenar;
     } else if (ele.target.value === 'no_contesta') {
-        document.querySelector(".bxncts").classList.remove("_hidden")
+        ocultar(".bxncts")
+    } else if (ele.target.value === 'agenda_prolongada' || ele.target.value === 'validacion') {
+        ocultar(".bxncts"); ocultar(".bxagdt ")
+    } else if (ele.target.value === 'extension_de_tiempo') {
+        // abrir pop up para que salga plantilla del correo
     } else {
         boxMaster.classList.add('_hidden')
     }
@@ -79,14 +81,28 @@ document.querySelector("a[type=menu]").addEventListener("click", (e) => {
         document.querySelectorAll("input.numero").forEach((element) => {
             a.push(element.value);
         });
-        numberformat = a.join("-")
-        numberformat = a[1] == "" ? numberformat.replace("-", "") : numberformat;
+        numberformat = a[1] == "" ? a.join(" -").replace("-", "") : a.join(" -");
         let ticketID = document.querySelector('#tkt_cl').value
         tipi_generada = `NO CONTESTA/Intentamos comunicarnos con el cliente a los números ${numberformat}. Sin éxito, se retoma el caso en el transcurso del día.\t${ticketID}`
     } else if (status === 'agenda_prolongada' || status === 'validacion') {
+        let a = [];
+        let numberformat = "";
+        document.querySelectorAll("input.numero").forEach((element) => {
+            a.push(element.value);
+        });
+        numberformat = a[1] == "" ? a.join(" -").replace("-", "") : a.join(" -");
         let nombreCl = document.getElementById("nombre_cl").value;
-
-        tipi_generada = `${status.toUpperCase().replace("_", " ")}/Contacto:${nombreCl},Número ${numero}.Contactar el 9/08/2023 a las 09:00\t${ticketID}`
+        nombreCl = nombreCl.includes("/") ? nombreCl.split("/")[0] : nombreCl
+        let splitfecha = document.getElementById("agendar_a").value.split("T")
+        let fecha = []
+        fecha.name = splitfecha[0]
+        fecha.hora = splitfecha[1]
+        fecha.year = fecha.name.split("-")[0]
+        fecha.month = fecha.name.split("-")[1]
+        fecha.day = fecha.name.split("-")[2]
+        let format = `Contactar el ${fecha.day}/${fecha.month}/${fecha.year} a las ${fecha.hora}`
+        let ticketID = document.querySelector('#tkt_cl').value
+        tipi_generada = `${status.toUpperCase().replace("_", " ")}/Contacto:${nombreCl},Número ${numberformat}. ${format}\t${ticketID}`
         'AGENDA PROLONGADA/Contacto: LIVIA MONICA VERTIZ BRIOLO, Número: 994041287. Contactar el 9/08/2023 a las 09:00'
     } else {
 
@@ -100,3 +116,21 @@ document.querySelector("a[type=menu]").addEventListener("click", (e) => {
     content.style.display = "none";
 })
 
+document.querySelectorAll("#numero1,#numero2").forEach((e) => {
+    e.addEventListener("input", (ele) => {
+        validarIngreso(ele.target.value, ele.target.id)
+    })
+})
+function validarIngreso(inputValue, idvalidate) {
+    // Verificar si el valor ingresado es un número
+    if (!isNaN(inputValue)) {
+        // Verificar si el valor del input comienza con 9 o 0
+        if (inputValue.startsWith('9') || inputValue.startsWith('0')) {
+            if (inputValue.length > 9) {
+                document.getElementById(idvalidate).value = inputValue.slice(0, -1);
+            }
+        } else {
+            document.getElementById(idvalidate).value = ""
+        }
+    }
+}

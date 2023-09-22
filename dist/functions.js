@@ -29,7 +29,7 @@ let chng_icons = document.querySelector(".mdi_chng")
 
 function calc_potencia(onu, olt) {
     var diff, vt
-    console.log(onu, olt)
+    // console.log(onu, olt)
     if (onu >= -25.5 && olt >= -30.0) {
         diff = onu < olt ? onu - olt : olt - onu
         vt = diff <= -5.5 ? true : false
@@ -63,7 +63,7 @@ export function get_campos(format = "json", type = "general") {
     if (format == "json") {
         let hora = new Date();
         document.querySelectorAll("input[type=text],#obs_cl,select").forEach(e => {
-            toLocalStorage += `{"${e.name}":"${e.value.replace(/\n/g,'\\n')}"}`
+            toLocalStorage += `{"${e.name}":"${e.value.replace(/\n/g, '\\n')}"}`
         })
         toLocalStorage += `{"createOn":"${hora.getDate()}/${hora.getMonth() + 1}/${hora.getFullYear()}T${hora.getHours()}:${hora.getMinutes()}"}`
         toLocalStorage = toLocalStorage.replaceAll("}{", ",")
@@ -99,10 +99,10 @@ export const buildCards = (dni_cl, tkt_cl, nodo_serv, mac_serv, potencia_olt, po
         <div class="item">mac: ${mac_serv}</div>
     <div class="item">potencia:${get_potencia}</div>
         <div class="item">degradado: ${isDegradado} /  ${potencia_status != "" ? potencia_status + 'dBm' : 'sin datos'}</div>
-        <div class="item">Observaciones: ${obs_cl.length>=100? obs_cl.substring(0, 100)+" ...":obs_cl}</div>
+        <div class="item">Observaciones: ${obs_cl.length >= 100 ? obs_cl.substring(0, 100) + " ..." : obs_cl}</div>
         </div>
         <div class="card footer __flex notext">
-        <div class="item">Estado: ${ctrl_proccess.replaceAll("_"," ")}</div>
+        <div class="item">Estado: ${ctrl_proccess.replaceAll("_", " ")}</div>
         <div class="item">editar</div>
         <div class="item">+</div>
     </div>
