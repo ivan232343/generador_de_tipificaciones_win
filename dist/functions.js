@@ -55,7 +55,6 @@ PotenciaBox.querySelector("#potencia_olt").addEventListener("input", (lis) => {
         chng_icons.classList.remove("mdi-close-circle-outline")
         chng_icons.classList.add("mdi-checkbox-marked-circle-outline")
     }
-    console.log(val)
 })
 
 export function get_campos(format = "json", type = "general") {

@@ -2,7 +2,9 @@ import {
     PlantillasBitacora
 } from '../dist/data/plantillas_b.js'
 let ctrl_proccess = document.querySelector("#ctrl_proccess");
+
 const ocultar = (elemento) => { document.querySelector(elemento).classList.remove("_hidden") }
+const mostrar = (elemento) => { document.querySelector(elemento).classList.add("_hidden") }
 let ctrlBoxSecondary = document.querySelector(".container__box-secundary");
 let boxMaster = document.querySelector('.bxfsh')
 ctrl_proccess.addEventListener("change", (ele) => {
@@ -102,8 +104,7 @@ document.querySelector("a[type=menu]").addEventListener("click", (e) => {
         fecha.day = fecha.name.split("-")[2]
         let format = `Contactar el ${fecha.day}/${fecha.month}/${fecha.year} a las ${fecha.hora}`
         let ticketID = document.querySelector('#tkt_cl').value
-        tipi_generada = `${status.toUpperCase().replace("_", " ")}/Contacto:${nombreCl},Número ${numberformat}. ${format}\t${ticketID}`
-        'AGENDA PROLONGADA/Contacto: LIVIA MONICA VERTIZ BRIOLO, Número: 994041287. Contactar el 9/08/2023 a las 09:00'
+        tipi_generada = `${status.toUpperCase().replace("_", " ")}/Contacto: ${nombreCl}, Número: ${numberformat}. ${format}\t${ticketID}`;
     } else {
 
     }

@@ -1,5 +1,6 @@
 const request = new XMLHttpRequest();
 
+const ocultar = (elemento) => { document.querySelector(elemento).classList.add("_hidden") }
 import {
     get_status,
     get_campos,
@@ -11,6 +12,7 @@ let formGetTipi = document.querySelector("#gen_tipi");
 
 let hora = new Date();
 window.onload = () => {
+    cleanMemory()
     get_status()
     getToday()
 }
@@ -34,7 +36,9 @@ formGetTipi.addEventListener("submit", (e) => {
     )
     // ctrlBoxSecondary.innerHTML = "";
     formGetTipi.reset();
-    document.querySelector('.bxfsh').classList.add('_hidden')
+    ocultar('.bxfsh');
+    ocultar('.bxncts');
+    ocultar('.bxagdt');
 })
 
 const getToday = () => {
@@ -77,5 +81,22 @@ function LimitChar() {
     document.querySelectorAll(".card.contenido").forEach((e) => {
         e.textContent = e.textContent.substring(0, 300)
     });
+}
+function cleanMemory() {
+    // Crear un objeto Date que represente la fecha actual
+    var today = new Date();
+    var sevenDaysAgo = new Date(today.getTime() - (7 * 24 * 60 * 60 * 1000));
+    console.log(sevenDaysAgo)
+
+    for (let i = 0; i < localStorage.length; i++) {
+        // Restarle 7 días a la fecha actual
+        let temp = JSON.parse(localStorage.getItem(localStorage.key(i)))
+        let horaTemp = temp.createOn.split("T")[0].split("/")
+        let time = new Date(`${horaTemp[1]}-${horaTemp[0]}-${horaTemp[2]}`)
+        console.log(time)
+        if (time <= sevenDaysAgo) {
+            localStorage.removeItem(localStorage.key(i));
+        } else { console.log("aun en vigencia, no se eliminara") }
+    }
 }
 // const reload = () => document.getElementById("hist_today").innerHTML = "" && getToday()
